@@ -1,15 +1,3 @@
-'''
-web3.py: Python Library to talk to Ethereum-compatible blockchains. Plygon is EVM compatible
-so polygon works
-
-supabase: python client for supabase. Under the hood it talks to supabases rest api, which sits in front
-of your Postgres DB
-
-python-dotenv: loads .env files
-'''
-
-
-
 web3>=6.0.0
 supabase>=2.0.0
 python-dotenv>=1.0.0

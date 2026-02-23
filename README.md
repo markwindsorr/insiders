@@ -29,6 +29,15 @@ To build a system that can classify insider trades on Polymarket historically an
 
 ---
 
+### Dependencies
+
+
+web3.py: Python Library to talk to Ethereum-compatible blockchains. Plygon is EVM compatible so polygon works
+
+supabase: python client for supabase. Under the hood it talks to supabases rest api, which sits in front of your Postgres DB
+
+python-dotenv: loads .env files
+
 ### Project Structure
 
 We will isolate each concern. Indexing blockchain data, detection logic and our database layer. 
