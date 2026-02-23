@@ -28,3 +28,23 @@ To build a system that can classify insider trades on Polymarket historically an
 - Algorimth to detect insider trades and optimal parameters and weights for each factor in the model.
 
 ---
+
+### Project Structure
+
+We will isolate each concern. Indexing blockchain data, detection logic and our database layer. 
+
+insiders/
+├── PLAN.md
+├── requirements.txt
+├── .env                  ← your secrets (RPC URL, Supabase keys)
+├── config.py             ← loads .env, exports constants
+├── indexer/
+│   ├── __init__.py
+│   ├── trades.py         ← OrderFilled event indexer
+│   └── wallets.py        ← USDC.e first deposit indexer
+├── detection/
+│   ├── __init__.py
+│   └── scorer.py         ← the scoring algorithm
+└── db/
+    ├── __init__.py
+    └── supabase_client.py ← Supabase connection helper
