@@ -1,5 +1,5 @@
 """
-Insider Detection Scorer (Deliverable 2d)
+Insider Detection Scorer 
 
 Scores each wallet 0-100 for insider trading suspicion.
 
@@ -15,20 +15,24 @@ How it works:
 4. Write score back to wallets.suspicion_score in Supabase.
 
 Why these weights?
+
 - Manually tuned against 7 known insider wallets. With only 7 confirmed positives,
   statistical optimization (grid search etc.) would overfit. Manual tuning with
   documented rationale is more honest.
+
 - wallet_age, entry_timing, concentration share top weight (0.25 each) because
   insiders consistently: use fresh wallets, trade right before resolution, and
   only bet on 1-3 markets. These are the three strongest behavioral indicators.
+
 - position_size (0.15) is moderate — insiders bet big, but so do whales.
+
 - trade_count (0.10) is supporting — few trades is suspicious but not definitive.
 """
 
 from db.supabase_client import supabase
 from datetime import datetime
 
-# --- Known insider wallets (our ground truth for validation) ---
+# Known insider wallets (our ground truth for validation) 
 
 KNOWN_INSIDERS = {
     "0xee50a31c3f5a7c77824b12a941a54388a2827ed6": "Google d4vd / alpha raccoon",

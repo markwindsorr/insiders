@@ -169,6 +169,7 @@ def run_live(poll_interval=5):
 
 if __name__ == "__main__":
     if "--live" in sys.argv:
+        # poll every 5 seconds by default for live
         run_live()
     else:
         # Default: index a meaningful historical range
