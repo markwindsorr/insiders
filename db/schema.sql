@@ -1,20 +1,17 @@
 
 -- Trades from OrderFilled events
 CREATE TABLE trades (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     wallet TEXT NOT NULL,
     token_id TEXT NOT NULL,
-    market_id TEXT,
     side TEXT NOT NULL,
     size NUMERIC NOT NULL,
-    price NUMERIC NOT NULL,
-    tx_hash TEXT NOT NULL UNIQUE,
+    tx_hash TEXT NOT NULL PRIMARY KEY,
     block_number BIGINT NOT NULL,
     timestamp TIMESTAMPTZ NOT NULL
 );
 
 CREATE INDEX idx_trades_wallet ON trades(wallet);
-CREATE INDEX idx_trades_market_id ON trades(market_id);
+CREATE INDEX idx_trades_token_id ON trades(token_id);
 CREATE INDEX idx_trades_timestamp ON trades(timestamp);
 
 -- Wallet profiles
@@ -33,7 +30,6 @@ CREATE TABLE markets (
     condition_id TEXT PRIMARY KEY,
     question TEXT,
     resolution_time TIMESTAMPTZ,
-    outcome TEXT,
     token_id_yes TEXT,
     token_id_no TEXT
 );
