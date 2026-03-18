@@ -33,7 +33,6 @@ from db.supabase_client import supabase
 from datetime import datetime
 
 # Known insider wallets (our ground truth for validation) 
-
 KNOWN_INSIDERS = {
     "0xee50a31c3f5a7c77824b12a941a54388a2827ed6": "Google d4vd / alpha raccoon",
     "0x6baf05d193692bb208d616709e27442c910a94c5": "Maduro out / SBet365",
@@ -49,8 +48,7 @@ KNOWN_NEGATIVES = {
     "0xc51eedc01790252d571648cb4abd8e9876de5202": "Spotify scraper (not insider)",
 }
 
-# --- Weights (tuned against known insiders) ---
-
+# Weights (tuned against known insiders) 
 WEIGHTS = {
     "wallet_age": 0.25,      # strong — insiders use fresh wallets
     "entry_timing": 0.25,    # strong — insiders trade right before resolution
